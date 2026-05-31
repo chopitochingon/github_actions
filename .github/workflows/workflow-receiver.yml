@@ -1,8 +1,7 @@
 name: Workflow Receiver
 
 on: 
-  repository_dispatch:
-    types: [workflow-receiver]
+  workflow_dispatch:
 
 jobs:
   receiver:
