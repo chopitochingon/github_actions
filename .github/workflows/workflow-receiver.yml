@@ -2,23 +2,18 @@ name: Workflow Receiver
 
 on: 
   workflow_dispatch:
-    inputs:
-      message:
-        description: 'Mensaje recibido'
-        required: false
-        default: 'Sin mensaje'
 
 jobs:
   receiver:
     runs-on: ubuntu-latest
     steps:
-      - name: Recibir mensaje
+      - name: Workflow disparado correctamente
         run: |
-          echo "Mensaje recibido: ${{ github.event.inputs.message }}"
+          echo "✅ Workflow Receiver activado por dispatcher!"
       
       - name: Usar secret
         env:
           MI_SECRET: ${{ secrets.SECRET_REPO }}
         run: |
           echo "Secret recibido y enmascarado: $MI_SECRET"
-          echo "Workflow disparado correctamente!"
+          echo "Comunicación entre workflows exitosa!"
